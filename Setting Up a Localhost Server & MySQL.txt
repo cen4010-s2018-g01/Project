@@ -1,0 +1,46 @@
+
+Alright, here is what I remember about setting up a local server for both Apache and MySQL. Regarding installing XAMPP, you should look on the internet rather than ask me (David); I installed XAMPP on my computer a while ago and have forgotten everything about the process. However, if you encounter any issues after installing XAMPP, feel free to ask me about it.
+
+0. Download "products.sql" and the folder labelled "Webstore"
+
+1. Download XAMPP
+	https://www.apachefriends.org/index.html
+
+2. Install XAMPP
+
+3. Run XAMPP. An icon of the XAMPP logo in the lower right of your taskbar should show up. Right click it and select "Show/Hide".
+
+4. A window should pop up. Click the "Start" buttons next to "Apache" and "MySQL".
+
+5. In your file explorer, navigate to "xampp/htdocs/". On my computer, the xampp folder is on drive C.
+
+6. Copy the "Webstore" folder into the "htdoc" folder. Now you can access the webstore on an internet browser of your choice by
+   typing "localhost/Webstore" into the browser address bar.
+
+7. Back on the XAMPP control panel, click on the "Admin" button next to MySQL. This should open up a new tab in your default web browser.
+
+8. Click on the "Import" tab. You can find it by using Ctrl+F and typing in Import.
+
+9. Click on the "Choose File" button. In the resulting window, naviagate to where you saved "test.sql" and double click on the .sql file.
+
+10. At the bottom of the page, click on the "Go" button.
+
+11. Click on the tab "User accounts".
+
+12. Click on the link "Add user account".
+
+13. Under "User name", click on "Use text field" and select "Any user".
+
+14. Under "Host Name", click on the textbox containing "%" and type in "localhost".
+
+15. Under "Password", click on "Use text field" and select "No password".
+
+16. Next to "Gloval privileges", select the "Check all" box.
+
+17. At the very bottom of the page, click the "Go" button. That should create a user account that can access any database on your computer without needing a password or a specific username.
+
+18. On the left bar, click on "products". You should be taken to a view showing the tables in the database. Click on "products" under the "Table" heading.
+
+19. What shows next is the table's contents. You can add new entries to the table by clicking on the "Insert" tab at the top.
+
+You're done!
