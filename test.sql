@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2018 at 07:05 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.6.19
+-- Generation Time: Mar 25, 2018 at 12:16 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `inventory` (
   `SKU` varchar(14) DEFAULT NULL,
   `P/N Name / Description` varchar(52) DEFAULT NULL,
-  `Keywords 1` varchar(20) DEFAULT NULL,
-  `Keyword 2` varchar(13) DEFAULT NULL,
+  `Keyword1` varchar(20) DEFAULT NULL,
+  `Keyword2` varchar(13) DEFAULT NULL,
   `Newark p/n` varchar(18) DEFAULT NULL,
   `quantity` varchar(8) DEFAULT NULL,
   `price each` varchar(10) DEFAULT NULL
@@ -40,7 +42,7 @@ CREATE TABLE `inventory` (
 -- Dumping data for table `inventory`
 --
 
-INSERT INTO `inventory` (`SKU`, `P/N Name / Description`, `Keywords 1`, `Keyword 2`, `Newark p/n`, `quantity`, `price each`) VALUES
+INSERT INTO `inventory` (`SKU`, `P/N Name / Description`, `Keyword1`, `Keyword2`, `Newark p/n`, `quantity`, `price each`) VALUES
 ('CAP-107_50V', 'Cap 100000000pf 100 uF 50V Electrolytic', '', 'through hole', '69K7856', '300', '0.063'),
 ('CAP-107_35V', 'Cap 100000000pf 100uF 107CKE035M @ 35V', '', 'through hole', '69K7903', '800', '0.053'),
 ('CAP-106_35V', 'Cap 10000000pf 10uF 106RSS035M @ 35V', '', 'through hole', '55M4300', '300', '0.03'),
@@ -95,7 +97,7 @@ INSERT INTO `inventory` (`SKU`, `P/N Name / Description`, `Keywords 1`, `Keyword
 ('VREG3.3', 'LD1117AV33 3.3v Reg @ 1.2A', 'VREG3.3', 'to220', '26M0152', '200', '0.395'),
 ('LM358', 'Op-Amp, 2, Dual LM358', 'LM358', 'dip', '67K0318', '1200', '0.13'),
 ('MSP430-bOARD', 'TI MSP-EXP430G2 TI Launch Pad', 'MSP430-bOARD', '', '77R3863', '200', '10.29'),
-('as.bag-8X5', 'antistatic bag - silver bag 100pcs', '8"x5" ZipLock', '', '71P4659', '6', '10.59');
+('as.bag-8X5', 'antistatic bag - silver bag 100pcs', '8\"x5\" ZipLock', '', '71P4659', '6', '10.59');
 
 -- --------------------------------------------------------
 
@@ -174,7 +176,9 @@ INSERT INTO `user info` (`Name`, `znumber`, `class-crn`, `college`, `department`
 ('rteret', 442236, 42195, 'EG', 'CSCE', 'COT', '6930', 'Natural Language Processing', 'rteret@fau.edu'),
 ('rteret', 442236, 42472, 'EG', 'CSCE', 'CNT', '6528', 'Vehicular Networks', 'rteret@fau.edu'),
 ('rteret', 442236, 42674, 'EG', 'CSCE', 'CEN', '5035', 'Software Engineering', 'rteret@fau.edu'),
-('ee3', 444098, 39736, 'EG', 'MECH', 'EGN', '1111C', 'Engineering Graphics', 'ee3@fau.edu');
+('ee3', 444098, 39736, 'EG', 'MECH', 'EGN', '1111C', 'Engineering Graphics', 'ee3@fau.edu'),
+('aa', 11, 11, 'aa', 'aa', 'aa', 'aa', 'aa', 'aa@fau.edu');
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

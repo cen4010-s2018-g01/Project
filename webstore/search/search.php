@@ -2,14 +2,14 @@
 
 <?php 
     include 'searchFunctions.php';
-    include 'connectDatabase.php'
+    include '../connectDatabase.php'
 ?> 
 
 <html>
     <body>
         <?php
             $conn = Connect();
-            search($conn); 
+            Search($conn); 
             $conn -> close();
         ?>
     </body>
