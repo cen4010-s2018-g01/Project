@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php 
-    include 'searchFunctions.php';
+    include 'searchPrimary.php';
     include '../connectDatabase.php'
 ?> 
 
