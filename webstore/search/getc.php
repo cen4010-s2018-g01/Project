@@ -1,6 +1,8 @@
 <?php
 
-function getColumnName($conn, $database, $table, $type){
+include_once("../universals/query.php");
+
+function GetColumn($database, $table, $type){
     
     $alias1 = "beans";
     $alias2 = "tacos";
@@ -17,9 +19,8 @@ function getColumnName($conn, $database, $table, $type){
         AS $alias2  
         WHERE $alias1 LIKE '%" . $type . "%'";
 
-    $column = $conn->query($sql);
+    $column = SendQuery($sql);
     $column = $column -> fetch_assoc();
-    $column = $column[$alias1];
-    return $column;
+    return $column[$alias1];
 }
 ?>
