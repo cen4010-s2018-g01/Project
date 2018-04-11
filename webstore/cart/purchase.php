@@ -24,24 +24,29 @@ function Purchase(){
 
     echo "<br>THANK YOU FOR YOUR PURCHASE!<br>";
     
-    echo "<br><a href='../orders/orders.php'>Click Here</a> to go to your orders.<br>"
+    echo "<br><a href='../orders/orders.php'>Click Here</a> to go to your orders.<br>";
     
-    echo "<br>For a total of $" . totalCost() . 
-        "<br>you have purchased:<br><br>";
+    echo "<br>For a total of $" . totalCost() . "<br>you have purchased:<br><br>";
     
     DisplayContents(FALSE);
     
-    $sql = "SELECT MAX(`orderNum`) FROM `test`.`orders`; ";
+    $sql = "SELECT MAX(`orderNum`) FROM `test`.`Orders`; ";
     $max = SendQuery($sql);
     
-    $max = $max -> fetch_assoc();
-    
-    if ($max['MAX(`orderNum`)'] === NULL){
-        $orderNum = 0;
+    if ($max){    
+        $max = $max -> fetch_assoc();
+        
+        if ($max['MAX(`orderNum`)'] === NULL){
+            $orderNum = 0;
+        }
+        
+        else{
+            $orderNum = $max['MAX(`orderNum`)'];
+        }
     }
     
     else{
-        $orderNum = $max['MAX(`orderNum`)'];
+        $orderNum = 0;
     }
     
     for ($i = 0; $i < (sizeof($_SESSION["cart"])); $i++){
@@ -49,7 +54,6 @@ function Purchase(){
             "INSERT INTO `Orders` (`username`, `orderNum`, `sku`, `quantity`, `price`) 
             VALUES ('" . $_SESSION["username"] . "', '" . ($orderNum + 1) . "', '" . $_SESSION["cart"][$i][0] . "', '" . 
             $_SESSION["cart"][$i][2] . "', '" . $_SESSION["cart"][$i][2] * $_SESSION["cart"][$i][3] . "' ); ";
-        echo $sql;
         SendQuery($sql);
     }
     
