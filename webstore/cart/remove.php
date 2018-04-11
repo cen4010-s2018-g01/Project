@@ -7,8 +7,6 @@
     $j = $_POST['row'];
     
     $_SESSION["cart"][$i][$j] = $_SESSION["cart"][$i][$j] - $removeQuant;
-
-echo $_SESSION["cart"][$i][3];
     
     if ($_SESSION["cart"][$i][$j] <= 0){
         for ($k = $i; $k < (sizeof($_SESSION["cart"]) - 1); $k++){

@@ -2,11 +2,13 @@
 
 function Connect(){
     
+    
     $servername = "localhost";
     $username = "username";
     $password = "";
     $dbName = "test";
     
+
     /*
     $servername = "lamp.cse.fau.edu";
     $username = "CEN4010_S2018g01";

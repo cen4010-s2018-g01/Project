@@ -23,4 +23,14 @@ function CheckEquals($left, $right){
     }
 }
 
+function CheckTableExists($dbname, $table){
+    
+    $sql = "SELECT * FROM `information_schema`.`TABLES` WHERE `TABLE_SCHEMA` = '" . $dbname . "' AND `TABLE_NAME` = '" . $table . "'; ";
+    
+    $results = SendQuery($sql);
+    
+    return CheckSingleEntry($results);
+    
+}
+
 ?>

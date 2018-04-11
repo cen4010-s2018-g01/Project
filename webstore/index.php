@@ -1,13 +1,12 @@
 <?php
-    session_start();
-    
+
+session_start();
+
+$_SESSION['userAuthorized'] = FALSE;
+
+if (!isset($_SESSION["cart"])){
     $_SESSION["cart"] = array();
-
-    $_SESSION['userAuthorized'] = FALSE;
-
-    //if (!isset($_SESSION["cart"])){
-        //$_SESSION["cart"] = array();
-    //}
+}
 
 ?>
 

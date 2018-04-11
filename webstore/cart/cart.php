@@ -1,19 +1,14 @@
 <?php
     session_start();
 
-    include "../search/input.php";
-
     if ($_SESSION['userAuthorized'] !== TRUE){
         header('Location: ../index.php');
         exit();
     }
 
     include "../universals/check.php";
+    include "display.php";
     
-    if (!isset($_SESSION['userAuthorized'])){
-        header('Location: ../index.php');
-        exit();
-    }
     
     function Cart(){
         
@@ -63,29 +58,14 @@
             echo "<a href='" . $_POST['url'] . "'>Click Here</a> to go back to your search results<br>";
         }
         
+        echo "<br><form action='../orders/orders.php'><input type='submit' value='Goto Orders'></form>";
+        
+        echo "<br><form action='clear.php' onsubmit='return confirmation(true)'><input type='submit' value='Clear Cart'></form>";
+        echo "<form action='purchase.php' onsubmit='return confirmation(false)'><input type='submit' value='Purchase All'></form>";
+        
         if (sizeof($_SESSION["cart"]) > 0){
-            echo "<br>Your cart contains:<br><br>";
-            $number = 1;
-            
-            for ($i = 0; $i < sizeof($_SESSION["cart"]); $i++){
-                $j = $i + 1;
-                echo "[" . $j . "]<br>";
-                echo "<p>Part Number:</p>";
-                echo "<p class = 'indented'>" . $_SESSION["cart"][$i][1] . "</p>";
-                echo "<p>Quantity:</p>";
-                echo "<p class = 'indented'>" . $_SESSION["cart"][$i][2] . "</p>";
-                echo "<p>Total Price:</p>";
-                echo "<p class = 'indented'>$" . $_SESSION["cart"][$i][2] * $_SESSION["cart"][$i][3] . "</p>";
-                echo "<br><form method='post' onsubmit='return validate(false, $number)' action= 'remove.php' id=form" . $number . ">";
-                echo Input(TRUE, 'number', 'column', $i);
-                echo Input(TRUE, 'number', 'row', '2');
-                echo Input(TRUE, 'text', 'partNumber', $_SESSION["cart"][$i][1]);
-                echo "<p>" . Input(FALSE, 'number', 'itemQuant', "") . "</p>";
-                echo "<p>" . Input(FALSE, 'submit', 'submit', 'Remove from Cart') . "</p>";
-                echo "</form>";
-                echo "<br><br>";
-                $number++;
-            }
+                echo "<br>Your cart contains:<br><br>";
+                DisplayContents(TRUE);
         }
         
         else{
@@ -99,15 +79,9 @@
 
 <html>
     <script src="../universals/scripts.js"></script>
-    <style>
-        .indented {
-            padding-left: 30pt;
-        }
-        p{
-            padding-left: 15pt;
-            margin: 0px;
-        }
-    </style>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../universals/style.css">
+    </head>
     <body>
         <?php Cart(); ?>
     </body>

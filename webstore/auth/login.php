@@ -1,17 +1,16 @@
-<!DOCTYPE html>
+<?php
 
-<?php 
-    include "auth.php";
     session_start();
 
-    if (!isset($_SESSION['userAuthorized']) === TRUE){
-        header('Location: ../index.php');
-        exit();
-    }
+    include "auth.php";
+
 ?>
+
+<!DOCTYPE html>
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="../universals/style.css">
     </head>
     
     <body>

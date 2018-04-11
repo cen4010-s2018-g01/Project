@@ -35,6 +35,9 @@ function Search($parameter, $category){
     echo
         "<br>Return to the <a href='../entry.php'>SEARCH ENTRY</a> screen<br>" . 
         "<a href='../index.php'>LOG OUT</a> and return to the Log In screen<br>";
+    
+    echo "<br><form action='../cart/cart.php'><input type='submit' value='Goto Cart'></form>";
+    echo "<form action='../orders/orders.php'><input type='submit' value='Goto Orders'></form>";
                 
     PrintIntro($parameter, $column);    
     PrintResults($results, Collate($database, $table));

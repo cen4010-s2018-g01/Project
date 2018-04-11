@@ -1,10 +1,11 @@
 <?php
-    session_start();
 
-    if ($_SESSION['userAuthorized'] !== TRUE){
-        header('Location: index.php');
-        exit();
-    }
+session_start();
+
+if ($_SESSION['userAuthorized'] !== TRUE || !isset($_SESSION['userAuthorized'])){
+    header('Location: index.php');
+    exit();
+}
 
 ?>
 
@@ -33,7 +34,7 @@
             echo
                 "<a href='index.php'>LOG OUT</a> and return to the Log In screen<br>";
         ?>
-        
+        <br>
         <form id= "searchForm" onsubmit = "return redirect()">
             
             Search:

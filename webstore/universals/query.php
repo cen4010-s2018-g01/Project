@@ -8,7 +8,12 @@ function SendQuery($sql){
     
     $result = $conn -> query($sql);
     $conn -> close();
-    return $result;    
+    
+    if (isset($result)){
+        return $result;    
+    }
+    
+    return;
 }
 
 ?>
