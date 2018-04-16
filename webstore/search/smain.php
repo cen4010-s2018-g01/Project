@@ -22,6 +22,7 @@ function Search($parameter, $category){
 
     $column = GetColumn($database, $table, $category);
     
+    /*
     if (strpos(strtoupper($column), 'KEY') !== FALSE){
         $column1 = "KEYWORD1";
         $column2 = "KEYWORD2";
@@ -30,6 +31,9 @@ function Search($parameter, $category){
     else{
         $results = FetchOne($table, $column, "LIKE", "%$parameter%");
     }
+    */
+    
+    $results = FetchOne($table, $column, "LIKE", "%$parameter%");
     
     echo "Logged in as " . strtoupper($_SESSION["firstname"]) . " " . strtoupper($_SESSION["lastname"]) . "<br>";
     echo

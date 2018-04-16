@@ -6,9 +6,8 @@ function Categories($type){
     
     $categories[] = "SKU";
     $categories[] = "DESC";
-    $categories[] = "KEYWORD1";
-    $categories[] = "KEYWORD2";
-    $categories[] = "NEWARK";
+    $categories[] = "KEYWORD";
+    $categories[] = "NPN";
     $categories[] = "QUANT";
     $categories[] = "PRICE";
     
@@ -20,13 +19,13 @@ function Categories($type){
             $type = $categories[1];
             break;
         case "KEY":
-            $type = "KEY";
+            $type = $categories[2];
             break;
         case "NEWARK":
-            $type = $categories[4];
+            $type = $categories[3];
             break;
         case "QUANTITY":
-            $type = $categories[5];
+            $type = $categories[4];
             break;
         case "PRICE":
             $type = $categories[5];
