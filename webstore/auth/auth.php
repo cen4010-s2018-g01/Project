@@ -4,6 +4,7 @@ include "../universals/query.php";
 include "../universals/check.php";
 include "../universals/fetch.php";
 include "tables.php";
+include "encode.php";
 
 function LogIn(){
     
@@ -19,7 +20,7 @@ function LogIn(){
     $username = $_POST['userID'];
     $password = $_POST['userPass'];
     
-    $entry = FetchTwo($table, $ucolumn, "=", $username, $pcolumn, "=", $password);
+    $entry = FetchOne($table, $ucolumn, "=", $username);
     
     $uexist = CheckSingleEntry($entry);
     
@@ -34,7 +35,14 @@ function LogIn(){
         return;
     }
 
-    $pexist = CheckEquals($password, FetchSub($entry, $pcolumn));
+    echo FetchSub($entry, $pcolumn);
+    
+    if (password_verify($password, FetchSub($entry, $pcolumn))){
+        $pexist = TRUE;
+    }
+    else{
+        $pexist = FALSE;
+    }
         
     if (CheckEquals($uexist, $pexist)){
         $_SESSION['userAuthorized'] = TRUE;
