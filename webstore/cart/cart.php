@@ -19,12 +19,12 @@ function Cart(){
     echo "<div class='row'>";
     echo "<div class='col-sm-6'>";
     echo "<form action='clear.php' onsubmit='return confirmation(true)'>";
-    echo Input(FALSE, "submit", "clear", "Clear Cart", 'btn btn-danger', '');
+    echo Input(FALSE, "submit", "clear", "Clear Cart", 'btn btn-danger', '', '');
     echo "</form>";
     echo "</div>";
     echo "<div class='col-sm-6'>";
     echo "<form action='purchase.php' onsubmit='return confirmation(false)'>";
-    echo Input(FALSE, "submit", "purchase", "Purchase All", 'btn btn-success', '');
+    echo Input(FALSE, "submit", "purchase", "Purchase All", 'btn btn-success', '', '');
     echo "</form>";
     echo "</div></div></div>";
     
@@ -44,7 +44,7 @@ function Cart(){
         
         echo "<div class='ml-4 mr-4'>";
         
-        if ($quant <= 0 || !is_nan($quant)){
+        if ($quant <= 0 || is_nan($quant)){
             echo 
                 "<br>Invalid quantity<br>" . 
                 "<a href='" . $_POST['url'] . "'>Click Here</a> to go back to your search results";

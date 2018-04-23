@@ -28,11 +28,11 @@ function DisplayContents($bool){
         
         if ($bool === TRUE){
             echo "<form method='post' onsubmit='return validate(false, $number)' action='remove.php' id='form" . $number . "'><p>";
-            echo Input(TRUE, 'number', 'column', $i, '', '');
-            echo Input(TRUE, 'number', 'row', '2', '', '');
-            echo Input(TRUE, 'text', 'partNumber', $_SESSION["cart"][$i][1], '', '');
-            echo Input(FALSE, 'number', 'itemQuant', '', 'form-control', 'width:20rem');
-            echo Input(FALSE, 'submit', 'submit', 'Remove from Cart', 'btn btn-warning', '');
+            echo Input(TRUE, 'number', 'column', $i, '', '', '');
+            echo Input(TRUE, 'number', 'row', '2', '', '', '');
+            echo Input(TRUE, 'text', 'partNumber', $_SESSION["cart"][$i][1], '', '', '');
+            echo Input(FALSE, 'number', 'itemQuant', '', 'form-control', 'width:20rem', '');
+            echo Input(FALSE, 'submit', 'submit', 'Remove from Cart', 'btn btn-warning', '', '');
             echo "</p></form>";
         }
         echo "</div>";
