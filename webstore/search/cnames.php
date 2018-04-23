@@ -33,7 +33,6 @@ function Categories($type){
         default:
             echo "Category not found";
     }
-    
     return $type;
 }
 

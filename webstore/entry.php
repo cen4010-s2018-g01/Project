@@ -2,10 +2,10 @@
 
 session_start();
 
-if ($_SESSION['userAuthorized'] !== TRUE || !isset($_SESSION['userAuthorized'])){
-    header('Location: index.php');
-    exit();
-}
+include_once('universals/links.php');
+include_once('universals/allowed.php');
+
+CheckAllowed();
 
 ?>
 
@@ -27,26 +27,33 @@ if ($_SESSION['userAuthorized'] !== TRUE || !isset($_SESSION['userAuthorized']))
     
     </script>
     
-    <body>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="universals/style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    
+    <body class="text-center">
         
         <?php
-            echo "Logged in as " . strtoupper($_SESSION["firstname"]) . " " . strtoupper($_SESSION["lastname"]) . "<br><br>";
-            echo
-                "<a href='index.php'>LOG OUT</a> and return to the Log In screen<br>";
+            CreateLinksEntry(FALSE, TRUE, TRUE);
         ?>
         <br>
         <form id= "searchForm" onsubmit = "return redirect()">
             
             Search:
-            <input type="text" name="searchParam">
+            <input type="text" name="searchParam" placeholder="Term">
             <select name="searchCategory">
                 <option value="name">Name</option>
                 <option value="newark">Newark Part Number</option>
                 <option value="sku">SKU</option>
                 <option value="key">Keyword</option>
             </select>
-            <br>
-            <input type="submit" value="Search">  
+            <br><br>
+            <input type="submit" class="btn btn-success" value="SEARCH">
+            <br><br>
+            To look at the entire inventory, leave the search box blank, <br> and press the SEARCH button.
             
         </form>
         

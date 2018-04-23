@@ -2,7 +2,7 @@
 
 session_start();
 
-include "encode.php";
+include_once('encode.php');
 
 ?>
 

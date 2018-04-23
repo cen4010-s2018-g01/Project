@@ -1,3 +1,4 @@
+
 function validate(addRemove, num) {
     var form = document.getElementById("form" + num);
     var quant = form.elements.namedItem('itemQuant').value;

@@ -1,16 +1,14 @@
 <?php
 
-include "../universals/query.php";
-
 session_start();
 
-if ($_SESSION['userAuthorized'] !== TRUE){
-    header('Location: ../index.php');
-    exit();
-}
+include_once('../universals/allowed.php');
+include_once('../universals/query.php');
+include_once('../universals/links.php');
+include_once('display.php');
+include_once('empty.php');
 
-include "display.php";
-include "empty.php";
+CheckAllowed();
 
 function totalCost(){
     $total = 0;
@@ -22,15 +20,17 @@ function totalCost(){
 
 function Purchase(){
 
+    CreateLinks(TRUE, TRUE, TRUE);
+    
+    echo "<div class='text-center'>";
     echo "<br>THANK YOU FOR YOUR PURCHASE!<br>";
     
-    echo "<br><a href='../orders/orders.php'>Click Here</a> to go to your orders.<br>";
-    
     echo "<br>For a total of $" . totalCost() . "<br>you have purchased:<br><br>";
+    echo "</div>";
     
     DisplayContents(FALSE);
     
-    $sql = "SELECT MAX(`orderNum`) FROM `test`.`Orders`; ";
+    $sql = "SELECT MAX(`orderNum`) FROM `CEN4010_S2018g01`.`Orders`; ";
     $max = SendQuery($sql);
     
     if ($max){    
@@ -66,6 +66,7 @@ function Purchase(){
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../universals/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     </head>
     <script src="../universals/scripts.js"></script>
     <body>

@@ -1,8 +1,25 @@
 <?php
 
-include "empty.php";
+session_start();
 
-EmptyCart();
-header("Location: cart.php");
+include_once('../universals/allowed.php');
+
+CheckAllowed();
+
+function ClearCart(){
+    unset($_SESSION['cart']);
+    $_SESSION['cart'] = array();
+    header("Location: cart.php");
+}
 
 ?>
+
+<!DOCTYPE html>
+<html>
+
+    <body>
+    
+        <?php ClearCart(); ?>
+    
+    </body>
+</html>

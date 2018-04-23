@@ -1,41 +1,72 @@
 <?php
 session_start();
-include "../universals/query.php";
+
+include_once('../universals/query.php');
+include_once('../universals/links.php');
+include_once('display.php');
+include_once('../universals/allowed.php');
+
+CheckAllowed();
 
 function FetchOrders(){
-    $dbname = 'test';
+    $dbname = 'CEN4010_S2018g01';
     $table = 'Orders';
     $sql = "SELECT * FROM `" . $dbname . "`.`" . $table . "` WHERE `username` = '" . $_SESSION["username"] . "'; ";
     return SendQuery($sql);
 }
 
-function DisplayOrders(){
+function Orders(){
     
     $results = FetchOrders();
     $number = 0;
+    $switch = 0;
+    
+    CreateLinks(TRUE, TRUE, FALSE);
     
     if ($results->num_rows === 0){
-        echo "No orders found.";
+        echo "<br>No orders found.";
     }
     
     else{
-        echo "<br>Here is a list of your orders:<br><br>";
+        echo "<br><div class='ml-4'>Here is a list of your orders currently being processed:</div><br>";
     }
     
     while ($row = $results->fetch_assoc()){
-        echo
-            "<p>Order Number:</p>" . 
-            "<p class='indented'>" . $row["orderNum"] . "</p>" .
-            "<p>SKU: </p>" . 
-            "<p class='indented'>" . $row['sku'] . "</p>" . 
-            "<p>Quantity: </p>" . 
-            "<p class='indented'>" . $row['quantity'] . "</p>" . 
-            "<p>Price: </p>" . 
-            "<p class='indented'>$" . $row['price'] . "</p>" .
-            "<form method='post' onsubmit='return cancel(" . $row["orderNum"] . ")' action='cancel.php'>
-                <input type='submit' value='Cancel Order'>
-                <input hidden type='number' name='orderNum' value='" . $row["orderNum"] . "'>
-                </form><br>";
+        
+    if ($switch === 0){
+        echo "<div class='card-deck ml-1 mr-1 mb-4'>";
+        $switch = $switch + 1;
+    }
+        
+        echo "<div class='card'>";
+        
+        DisplayOrders($row);
+        
+        echo "</div>";
+        
+        $switch = $switch + 1;
+        
+        if ($switch === 4){
+            echo "</div>";
+            $switch = 0;
+        }
+    }
+    
+    switch ($switch){
+        case 3:
+            echo "<div class='card border-0'></div></div>";
+            break;
+        case 2:
+            echo "<div class='card border-0'></div>";
+            echo "<div class='card border-0'></div></div>";
+            break;
+        case 1:
+            echo "<div class='card border-0'></div>";
+            echo "<div class='card border-0'></div>";
+            echo "<div class='card border-0'></div></div>";
+            break;
+        default:
+            break;
     }
 }
 
@@ -47,9 +78,10 @@ function DisplayOrders(){
     </script>
     
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../universals/style.css">
     </head>
     <body>
-        <?php DisplayOrders(); ?>    
+        <?php Orders(); ?>    
     </body>
 </html>

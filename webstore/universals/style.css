@@ -5,4 +5,9 @@
 p{
     padding-left: 15pt;
     margin: 0px;
+    margin-bottom: 0px;
+}
+
+.card {
+    display:inline-block;
 }

@@ -1,6 +1,6 @@
 <?php
 
-function Input($hidden, $type, $name, $value){
+function Input($hidden, $type, $name, $value, $class, $style, $holder){
     
     if ($hidden === TRUE){
         $hidden = 'hidden';
@@ -9,7 +9,8 @@ function Input($hidden, $type, $name, $value){
         $hidden = '';
     }
     
-    return "<input $hidden type='$type' name='$name' id='$name' value='$value'>";
+    return "<input $hidden type='$type' name='$name' id='$name' value='$value' class='$class' style='$style'" .
+        "placeholder='$holder''>";
     
 }
 

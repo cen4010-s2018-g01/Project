@@ -9,21 +9,21 @@ function PrintIntro($parameter, $column){
     }
     
     echo
-            "<br> SEARCH RESULTS <br>
-            <br> Search Term: " . strtoupper($parameter) . 
-             "<br> Search Category: " . strtoupper($column) . "<br>";
+        "<div class='ml-4 mr-4 mt-4'>" . 
+        "Search Term: <i>" . strtoupper($parameter) . "</i>" . 
+        "<br> Search Category: <i>" . strtoupper($column) . "</i>" .  
+        "</div>";
     
     echo 
-                "<b><br>[Search Entry Number]" . 
-                "<p>Newark Part Number</p>" . 
-                "<p>Name / Description</p>" .
-                "<p>Stock Keeping Unit</p>" .
-                "<p>Quantity</p>" .
-                "<p>Price</p>" .
-                "<br><p>Keywords</p></b>";
-    
-    echo
-        "<br>" . str_repeat("=",50) . "<br>";
+        "<div class='card ml-4 mr-4' style='width: 30rem'>" . 
+        "<div class='card-header'><b>Search Entry Number]</b> " . 
+        "Newark Part Number</div>" . 
+        "<p>Name / Description</p>" .
+        "<p>Stock Keeping Unit</p>" .
+        "<p>Quantity</p>" .
+        "<p>Price</p>" .
+        "<br><p>Keywords</p>" . 
+        "</div><br><br>";
     
 }
 ?>
