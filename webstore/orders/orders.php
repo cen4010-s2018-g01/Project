@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-include_once('../universals/query.php');
+include_once('../connection/query.php');
 include_once('../universals/links.php');
 include_once('display.php');
-include_once('../universals/allowed.php');
+include_once('../auth/allowed.php');
 
 CheckAllowed();
 
@@ -74,7 +74,7 @@ function Orders(){
 
 <!DOCTYPE html>
 <html>
-    <script src='../universals/scripts2.js'> 
+    <script src='../javascript/scriptsBeta.js'> 
     </script>
     
     <head>

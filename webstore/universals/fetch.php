@@ -1,5 +1,7 @@
 <?php
 
+include_once("../connection/query.php");
+
 function FetchOne($table, $column, $mod, $parameter){
     
     $sql = 
@@ -42,6 +44,10 @@ function FetchUnion($table1, $column1, $mod1, $parameter1, $table2, $column2, $m
 
 function FetchSub($entry, $category){
     return $entry[$category];
+}
+
+function FetchAssoc($entry){
+    return $entry -> fetch_assoc();
 }
 
 ?>

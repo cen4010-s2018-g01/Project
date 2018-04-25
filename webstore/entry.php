@@ -3,7 +3,8 @@
 session_start();
 
 include_once('universals/links.php');
-include_once('universals/allowed.php');
+include_once('auth/allowed.php');
+include_once('admin.php');
 
 CheckAllowed();
 
@@ -43,7 +44,7 @@ CheckAllowed();
         <form id= "searchForm" onsubmit = "return redirect()">
             
             Search:
-            <input type="text" name="searchParam" placeholder="Term">
+            <input type="text" name="searchParam" placeholder="Search term">
             <select name="searchCategory">
                 <option value="name">Name</option>
                 <option value="newark">Newark Part Number</option>
@@ -56,6 +57,8 @@ CheckAllowed();
             To look at the entire inventory, leave the search box blank, <br> and press the SEARCH button.
             
         </form>
+        
+        <?php Admin() ?>
         
     </body>
 

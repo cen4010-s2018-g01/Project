@@ -42,14 +42,20 @@ Table();
         <form action="account/account.php">
             <input type="submit" value="Create New Account" class="btn btn-warning">
         </form>
-	<br>
-	To log in using a test account use:<br>
-	Username: user<br>
-	Password: pass<br>
-	<br>
-	This system uses a password encoding tool. If you create a new accounts tuple, go to<br>
-	<a href="auth/generate.php">"webstore/auth/generate.php"</a> to encode the desired password<br>
-	and then put the encoded password into the new tuple.<br><br>
-	<?php echo "For example, for 'pass', the encoded password is: " . Encode("pass"); ?>
+        <br>
+        To log in using a test <b>customer</b> account use:<br>
+        Username: user<br>
+        Password: pass<br>
+        <br>
+        To log in using a test <b>admin</b> account use:<br>
+        Username: admin<br>
+        Password: admin<br>
+        <br>
+        <b>Please Note:</b> This program does not work correctly in the Safari browser.
+        <br><br>
+        This system uses a password encoding tool. If you create a new accounts tuple, go to<br>
+        <a href="auth/generate.php">"webstore/auth/generate.php"</a> to encode the desired password<br>
+        and then put the encoded password into the new tuple.<br><br>
+        <?php echo "For example, for 'pass', the encoded password is: " . Encode("pass"); ?>
     </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-include "../universals/check.php";
+include_once('../universals/check.php');
 
 function PrintIntro($parameter, $column){
     

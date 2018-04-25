@@ -40,31 +40,25 @@ function CreateLinks($search, $cart, $orders){
     
     echo "<div class='row'>";
     
-    echo "<div class='col-sm-$divider'>" . 
-        "<form action='../index.php'>" . 
-        Input(FALSE, 'submit', 'submit1', 'Back to Login', 'btn btn-info', '', '') . 
-        "</form>" . 
+    echo "<div class='col-sm-$divider'>" .
+        '<a href="../index.php" class="btn btn-info">LOG OUT</a>' . 
         "</div>";
     
     if ($search === TRUE){
         echo "<div class='col-sm-$divider'>" . 
-            "<form action='../entry.php'>" . 
-            Input(FALSE, 'submit', 'submit2', 'Back to Search Entry', 'btn btn-info', '', '') . 
-            "</form>" . 
+             '<a href="../entry.php" class="btn btn-info">SEARCH</a>' .  
             "</div>";
     }
     
     if ($cart === TRUE){
-        echo "<div class='col-sm-$divider'><form action='../cart/cart.php'>" . 
-            Input(FALSE, 'submit', 'submit3', 'Go to Cart', 'btn btn-info', '', '') . 
-            "</form>" . 
+        echo "<div class='col-sm-$divider'>" . 
+             '<a href="../cart/cart.php" class="btn btn-info">CART</a>' . 
             "</div>";
     }
     
     if ($orders === TRUE){
-        echo "<div class='col-sm-$divider'><form action='../orders/orders.php'>" . 
-            Input(FALSE, 'submit', 'submit3', 'Go to Orders', 'btn btn-info', '', '') . 
-            "</form>" . 
+        echo "<div class='col-sm-$divider'>" . 
+             '<a href="../orders/orders.php" class="btn btn-info">ORDERS</a>' . 
             "</div>";
     }
     
@@ -116,18 +110,26 @@ function CreateLinksEntry($search, $cart, $orders){
     
     echo "<div class='row'>";
     
-    echo "<div class='col-sm-$divider'><form action='index.php'><input type='submit' class='btn btn-info' value='Back to Login'></form></div>";
+    echo "<div class='col-sm-$divider'>" .
+        '<a href="index.php" class="btn btn-info">LOG OUT</a>' . 
+        "</div>";
     
     if ($search === TRUE){
-        echo "<div class='col-sm-$divider'><form action='entry.php'><input type='submit' class='btn btn-info' value='Back to Search Entry'></form></div>";
+        echo "<div class='col-sm-$divider'>" . 
+             '<a href="entry.php" class="btn btn-info">SEARCH</a>' .  
+            "</div>";
     }
     
     if ($cart === TRUE){
-        echo "<div class='col-sm-$divider'><form action='cart/cart.php'><input type='submit' class='btn btn-info' value='Go To Cart'></form></div>";
+        echo "<div class='col-sm-$divider'>" . 
+             '<a href="cart/cart.php" class="btn btn-info">CART</a>' . 
+            "</div>";
     }
     
     if ($orders === TRUE){
-        echo "<div class='col-sm-$divider'><form action='orders/orders.php'><input type='submit' class='btn btn-info' value='Go To Orders'></form></div>";
+        echo "<div class='col-sm-$divider'>" . 
+             '<a href="orders/orders.php" class="btn btn-info">ORDERS</a>' . 
+            "</div>";
     }
     
     echo "</div>";

@@ -2,7 +2,7 @@
 
 session_start();
 
-include_once('../univerals/allowed.php');
+include_once('../auth/allowed.php');
 
 CheckAllowed();
 

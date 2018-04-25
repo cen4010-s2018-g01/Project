@@ -2,7 +2,7 @@
 
 session_start();
 
-include_once('../universals/query.php');
+include_once('../connection/query.php');
 include_once('../universals/check.php');
 include_once('../universals/fetch.php');
 include_once('encode.php');
@@ -14,6 +14,8 @@ function LogIn(){
     $ucolumn = "Username";
     $firstc = "firstname";
     $lastc = "lastname";
+    $znumber = "znumber";
+    $admin = "admin";
     
     $uexist = FALSE;
     $pexist = FALSE;
@@ -51,6 +53,8 @@ function LogIn(){
         $_SESSION['username'] = $username;
         $_SESSION["firstname"] = FetchSub($entry, $firstc);
         $_SESSION["lastname"] = FetchSub($entry, $lastc);
+        $_SESSION["znumber"] = FetchSub($entry, $znumber);
+        $_SESSION["admin"] = FetchSub($entry, $admin);
         header("Location: ../entry.php");
         return;
     }

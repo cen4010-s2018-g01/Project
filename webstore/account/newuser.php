@@ -1,6 +1,6 @@
 <?php
 
-include_once("../universals/query.php");
+include_once("../connection/query.php");
 include_once("../auth/encode.php");
 
 function CreateAccount(){

@@ -1,7 +1,7 @@
 <?php
 
 include_once('check.php');
-include_once('query.php');
+include_once('connection/query.php');
 
 function InvInsert($sku, $des, $key, $npn, $quant, $price){
     $sql = "INSERT INTO `inventory` (`SKU`, `Description`, `Keyword`, `NPN`, `quantity`, `price`) VALUES ('$sku', '$des', '$key', '$npn', '$quant', '$price');";

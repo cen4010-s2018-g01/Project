@@ -10,7 +10,7 @@ include_once('../universals/fetch.php');
 include_once('cnames.php');
 include_once('../universals/links.php');
 include_once('decode.php');
-include_once('../universals/allowed.php');
+include_once('../auth/allowed.php');
 
 CheckAllowed();
 
@@ -57,7 +57,7 @@ function Search($parameter, $category){
 <html>    
     
     <head>
-        <script src="../universals/scripts.js"></script>
+        <script src="../javascript/scriptsAlpha.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" href="../universals/style.css">
     </head>

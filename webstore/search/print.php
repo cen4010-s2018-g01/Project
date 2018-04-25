@@ -1,6 +1,6 @@
 <?php
 
-include "../universals/input.php";
+include_once('../universals/input.php');
 
 function PrintResults($result, $array){
     $number = 1;

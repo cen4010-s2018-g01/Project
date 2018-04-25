@@ -10,9 +10,12 @@
         <br>
         <h2>New Account Creation</h2>
         <br>
+        
+        <form action="../index.php">
+            <input type="submit" value="Return to Log In" class="btn btn-info">
+        </form>
+        
         <form method="post" action="newuser.php">
-            <input type="submit" class="btn btn-success mb-2 mt-2">
-            <br>
             <input type="text" name="newUser" placeholder="Username" class="mb-2 mt-2 ml-2 mr-2" required>
             <input type="password" name="newPass" placeholder="Password" class="mb-2 mt-2 ml-2 mr-2" required>
             <br>
@@ -20,11 +23,10 @@
             <input type="text" name="lastName" placeholder="Last Name" class="mb-2 mt-2 ml-2 mr-2" required>
             <br>
             <input type="number" name="znumber" placeholder="Z Number" class="mb-2 mt-2 ml-2 mr-2" required>
+            <br>
+            <input type="submit" class="btn btn-success mb-2 mt-2">
         </form>
         <br>
-        <form action="../index.php">
-            <input type="submit" value="Return to Log In" class="btn btn-info">
-        </form>
     </body>
 
 </html>
